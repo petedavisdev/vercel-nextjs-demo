@@ -1,7 +1,7 @@
 {
     "things": [
-        { "id": 1, "title": "Thing 1" },
-        { "id": 2, "title": "Thing 2" },
-        { "id": 3, "title": "Thing 3" }
+        { "id": "1", "title": "Thing 1", "detail": "This is thing 1" },
+        { "id": "2", "title": "Thing 2", "detail": "This is thing 2" },
+        { "id": "3", "title": "Thing 3", "detail": "This is thing 3" }
     ]
 }

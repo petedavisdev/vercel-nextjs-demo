@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import styles from "../styles/Home.module.css";
+import Link from "next/link";
 
 export async function getStaticProps() {
     const filePath = path.join(process.cwd(), "data", "dummy-data.json");
@@ -19,7 +20,9 @@ export default function Home(props) {
         <main className={styles.main}>
             <ul>
                 {props.products.map((product) => (
-                    <li key={product.id}>{product.title}</li>
+                    <li key={product.id}>
+                        <Link href={`/${product.id}`}>{product.title}</Link>
+                    </li>
                 ))}
             </ul>
         </main>
