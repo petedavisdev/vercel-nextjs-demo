@@ -10,12 +10,10 @@ async function getData() {
     return data;
 }
 
-export async function getStaticProps(context) {
-    const id = context.params.thingid;
-
+export async function getStaticProps({ params: { thingid } }) {
     const data = await getData();
 
-    const thing = data.things.find((thing) => thing.id === id);
+    const thing = data.things.find((thing) => thing.id === thingid);
 
     if (!thing) {
         return { notFound: true };
@@ -39,15 +37,15 @@ export async function getStaticPaths() {
     };
 }
 
-export default function ThingDetailPage(props) {
-    if (!props.loadedThing) {
+export default function ThingDetailPage({ loadedThing }) {
+    if (!loadedThing) {
         return <p>Loading...</p>;
     }
 
     return (
         <Fragment>
-            <h1>{props.loadedThing.title}</h1>
-            <p>{props.loadedThing.detail}</p>
+            <h1>{loadedThing.title}</h1>
+            <p>{loadedThing.detail}</p>
         </Fragment>
     );
 }
