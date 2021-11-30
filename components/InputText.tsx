@@ -16,7 +16,9 @@ export function InputText(props: InputTextProps) {
 
   return (
     <section>
-      <label htmlFor={props.id}>{props.children}</label>
+      <label htmlFor={props.id}>
+        {props.children} {!props.required && <small>optional</small>}
+      </label>
       <input
         id={props.id}
         name={props.id}
